@@ -1,0 +1,60 @@
+<h1>Albums</h1>
+
+
+
+<% if @albums.any? %>
+  <ul>
+    <% @albums.each do |album| %>
+      <li><%= link_to album.name, album_path(album) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no albums yet.</p>
+<% end %>
+ 
+<p><%= link_to "Create new album", new_album_path %></p>
+
+<form>
+<%# <form action="/albums/:id"> %>
+  <div class="form-group">
+    <label for="name_parameter">Search</label>
+    <input id="search" name="name_parameter" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Search</button>
+</form>
+
+<% if Album.rap.any? %>
+  <h3>Check out these rap albums</h3>
+  <ul>
+    <% Album.rap.each do |album| %>
+      <li><%= link_to album.name, album_path(album) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No rap ablums</p>
+<% end %>
+
+<% if Album.rock.any? %>
+  <h3>Check out these rock albums</h3>
+  <ul>
+    <% Album.rock.each do |album| %>
+      <li><%= link_to album.name, album_path(album) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No rock albums</p>
+<% end %>
+
+<% if Album.country.any? %>
+  <h3>Check out these country albums</h3>
+  <ul>
+    <% Album.country.each do |album| %>
+      <li><%= link_to album.name, album_path(album) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No country albums</p>
+<% end %>
+
+
+
